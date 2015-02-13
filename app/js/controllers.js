@@ -2,13 +2,8 @@
 
 /* Controllers */
 
-angular.module('musicAlbumApp.controllers', ['ui.bootstrap'])
-    
-
-
-
-
-    .controller('SearchCtrl', ['$scope', 'searchService', function ($scope, searchService) {
+angular.module('musicAlbumApp.controllers', ['ui.bootstrap']).
+    controller('SearchCtrl', ['$scope', 'searchService', function ($scope, searchService) {
         $scope.maxSize = 5;
         $scope.currentPage = 1;
         $scope.pageSizes = [
