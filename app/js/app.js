@@ -1,12 +1,3 @@
-var app = angular.module('presentation', []);
-
-app.controller('indexCtrl', function(){
-    this.title = 'Presentation';
-    this.desc = 'Description du site pour referencement'
-});
-
-
-/*
 'use strict';
 
 // Declare app level module which depends on filters, and services
@@ -74,4 +65,3 @@ angular.module('musicAlbumApp', [
                 });
         }
     }]);
-*/
