@@ -2,7 +2,7 @@
 
 /* Filters */
 
-angular.module('musicAlbumApp.filters', []).
+angular.module('pro_site_app.filters', []).
     filter('interpolate', ['version', function (version) {
         return function (text) {
             return String(text).replace(/\%VERSION\%/mg, version);

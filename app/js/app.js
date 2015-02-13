@@ -1,14 +1,14 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('musicAlbumApp', [
+angular.module('pro_site_app', [
         'ngSanitize',
         'elasticsearch',
-        'musicAlbumApp.routes',
-        'musicAlbumApp.filters',
-        'musicAlbumApp.services',
-        'musicAlbumApp.directives',
-        'musicAlbumApp.controllers'
+        'pro_site_app.routes',
+        'pro_site_app.filters',
+        'pro_site_app.services',
+        'pro_site_app.directives',
+        'pro_site_app.controllers'
     ]).
     run(['$http', '$rootScope', 'userLanguage', 'translation', function ($http, $rootScope, userLanguage, translation) {
         var langRange = 'en-us';

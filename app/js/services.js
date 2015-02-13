@@ -2,7 +2,7 @@
 
 /* Services */
 
-angular.module('musicAlbumApp.services', ['ngResource'])
+angular.module('pro_site_app.services', ['ngResource'])
     .value('version', '1.0')
     // elasticsearch.angular.js creates an elasticsearch
     // module, which provides an esFactory

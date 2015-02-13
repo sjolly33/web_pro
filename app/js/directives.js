@@ -3,7 +3,7 @@
 /* Directives */
 
 
-angular.module('musicAlbumApp.directives', []).
+angular.module('pro_site_app.directives', []).
     directive('appVersion', ['version', function (version) {
         return function (scope, elm) {
             elm.text(version);
