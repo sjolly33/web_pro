@@ -1,0 +1,5 @@
+css
+	class success : msg validation apres formulaire
+	class error ? : msg erreur apres formulaire
+
+gestion plus poussee des droits (notament : gérer l'acces aux pages inaccessibles après connexion)
