@@ -66,7 +66,7 @@
 					if(ISSET($success_register)){ echo div(div($success_register, array('class' => 'col-xs-12 text-center success')), array('class' => 'row')); }
 					////
 
-					echo form_open('modify_new/' . $post->id);
+					echo form_open(base_url() . 'modify_new/' . $post->id);
 					echo div(div(form_fieldset('Modifier une actualité'), array('class' => 'text-center')), array('class' => 'row')) . br();
 
 					echo construct_control('title', 'titre', 'form_input', $post->title, $error_register); // title field

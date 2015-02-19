@@ -55,7 +55,6 @@ $route['restricted'] = 'error_controller/restricted';
 
 // event
 $route['news'] = 'eventsCtrl';
-$route['news/index'] = 'eventsCtrl/index';
 $route['add_new'] = 'eventsCtrl/add';
 $route['del_new/(:num)'] = 'eventsCtrl/delete/$1';
 $route['modify_new/(:num)'] = 'eventsCtrl/change/$1';
@@ -63,7 +62,8 @@ $route['modify_new/(:num)'] = 'eventsCtrl/change/$1';
 ////
 
 // meet
-$route['meet'] = 'meetCtrl';
+$route['meet'] = 'meetingsCtrl';
+$route['add_meet'] = 'meetingsCtrl/add';
 ////
 
 

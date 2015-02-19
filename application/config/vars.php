@@ -14,5 +14,9 @@ $config['not_logged_allowed'] = array(
 $config['restricted_path'] = 'restricted_access'; /** the restricted page path in views */
 $config['access'] = array(); /** access rights as an associative array */
 $config['rights_length'] = 8; /** access rights length in database */
+$config['1st_meet_begin'] = '9:30'; /** first meeting begining hour as a string (hours) */
+$config['last_meet_end'] = '18:15'; /** last meeting ending hour as a string (hours) */
+$config['meet_duration'] = '0:45'; /** duration of each meeting as a string (hours) */
+$config['worked_days'] = array('lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'); /** worked week days */
 
 ?>

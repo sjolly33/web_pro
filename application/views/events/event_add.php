@@ -74,7 +74,7 @@
 					if(ISSET($success_register)){ echo div(div($success_register, array('class' => 'col-xs-12 text-center success')), array('class' => 'row')); }
 					////
 
-					echo form_open('add_new');
+					echo form_open(base_url() . 'add_new');
 					echo div(div(form_fieldset('Ajouter une actualité'), array('class' => 'text-center')), array('class' => 'row')) . br();
 
 					echo construct_control('title', 'titre', 'form_input', $post, $error_register); // title field

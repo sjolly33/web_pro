@@ -59,6 +59,7 @@
 			?>
 
 	TODO
+		taille egale toutes colonnes ds prise de rdv
 		CSS
 			class
 				bloc_an_event
