@@ -60,6 +60,7 @@
 
 	TODO
 		taille egale toutes colonnes ds prise de rdv
+		lag au chargement de la page rdv (voir si possible décharger boucles foreach)
 		CSS
 			class
 				bloc_an_event

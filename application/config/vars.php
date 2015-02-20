@@ -17,6 +17,6 @@ $config['rights_length'] = 8; /** access rights length in database */
 $config['1st_meet_begin'] = '9:30'; /** first meeting begining hour as a string (hours) */
 $config['last_meet_end'] = '18:15'; /** last meeting ending hour as a string (hours) */
 $config['meet_duration'] = '0:45'; /** duration of each meeting as a string (hours) */
-$config['worked_days'] = array('lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'); /** worked week days */
+$config['worked_days'] = array('Monday' => 'lundi', 'Tuesday' => 'mardi', 'Wednesday' => 'mercredi', 'Thursday' => 'jeudi', 'Friday' => 'vendredi', 'Saturday' => 'samedi', 'Sunday' => 'dimanche'); /** worked week days as an associative array (keys : weekdays in english with a capital, values : translation to display) */
 
 ?>

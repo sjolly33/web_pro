@@ -38,20 +38,8 @@
 |
 */
 
-$route['default_controller'] = 'member_controller'; ///////////////////// TODO
+$route['default_controller'] = 'eventsCtrl';
 $route['404_override'] = 'errors/page_missing';
-
-// member_controller
-$route['member'] = 'member_controller/index';
-$route['member/register'] = 'member_controller/register';
-$route['member/login'] = 'member_controller/login';
-$route['member/logout'] = 'member_controller/logout';
-////
-
-// error_controller
-$route['restricted'] = 'error_controller/restricted';
-////
-
 
 // event
 $route['news'] = 'eventsCtrl';
@@ -63,7 +51,7 @@ $route['modify_new/(:num)'] = 'eventsCtrl/change/$1';
 
 // meet
 $route['meet'] = 'meetingsCtrl';
-$route['add_meet'] = 'meetingsCtrl/add';
+$route['add_meet/(:num)'] = 'meetingsCtrl/add/$1';
 ////
 
 

@@ -15,15 +15,15 @@
 				echo form_close();*/
 
 				$meetings_table = array();
-				foreach($week_planning as $k => $hour)
+				$size_week_planning = count($week_planning);
+				for($i = 0; $i < $size_week_planning; ++$i)
 				{					
-					$an_hour = array($hour['hour']);
-					foreach($hour['week_meets'] as $day => $patient)
+					$an_hour = array($week_planning[$i]['hour']);
+					foreach($week_planning[$i]['week_meets'] as $day => $patient)
 					{
 						if($patient == '') // filling empty slots
 						{
-							$this->session->set_userdata('take_slot_date', $day);
-							array_push($an_hour, a('prendre rdv', base_url('add_meet')));
+							array_push($an_hour, a('libre', base_url() . 'add_meet/' . $day));
 						}
 						else{ array_push($an_hour, '-'); } // filling full slots
 						
