@@ -10,7 +10,7 @@
 	<body>
 		<?php // temporaire : simulation connexion / admin
 			$this->session->set_userdata('is_logged_in', true);
-			$this->session->set_userdata('is_admin', true);
+			$this->session->set_userdata('is_admin', false);
 		?>
 		<div class='navbar navbar-inverse navbar-static-top' role='navigation'>
 			<div class='container'>
@@ -60,7 +60,7 @@
 
 	TODO
 		taille egale toutes colonnes ds prise de rdv
-		lag au chargement de la page rdv (voir si possible décharger boucles foreach)
+		griser cases indisponibles dans l index rdv(couleurs CSS !)
 		CSS
 			class
 				bloc_an_event

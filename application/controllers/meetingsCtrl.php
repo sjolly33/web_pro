@@ -20,58 +20,66 @@ class MeetingsCtrl extends My_controller
 	*/
 	public function index($data = array())
 	{
-		$data['1st_day'] = strtotime('16 February 2015 00:00:00');
-		$data['worked_days'] = $this->config->item('worked_days');
+		$data['list_weeks'] = $this->_construct_weeks_list();
 
-		/**$data['weeks'] = array(0 => 'semaine 1', 1 => 'semaine 2', 2 => 'semaine 3');
-		$data['selected_week'] = 2;*/
-
-		// compute worked slots for each worked day
-		$begin = strtotime($this->config->item('1st_meet_begin')); // first meet begining in date format
-		$end = strtotime($this->config->item('last_meet_end')); // last meet ending in date format
-		$duration = explode(':', $this->config->item('meet_duration'));
-		$meets = array(); // array to contain slots
-		for($i = $begin; end($meets) < $end; $i = strtotime('+' . $duration[0] . ' hours ' . $duration[1] . ' minutes', end($meets)))
+		if($this->input->post())
 		{
-			array_push($meets, $i);
+			$first_day = $this->input->post('list_weeks'); // get selected week
+
+			$meet_model = new Meeting();
+			$selected_week_meets = $meet_model->where('date >=', date('Y/m/d', $first_day))->where('date <', date('Y/m/d', strtotime('next monday', $first_day)))->get();
+
+			$selected_week_taken_slots = array(); // associative array to contain week complete planning (keys = dates (datetime format), values = '-' (meet slot taken))
+			foreach($selected_week_meets as $a_meet){ $selected_week_taken_slots[strtotime($a_meet->date . ' ' . $a_meet->time)] = '-'; }
+
+			$data['selected_week_taken_slots'] = $selected_week_taken_slots;
+			$data['worked_days'] = $this->config->item('worked_days');
+			$data['time_slots'] = $this->_construct_time_slots();
+			$data['first_day'] = $first_day;
 		}
-		////
-
-		$week_planning = array(); // array to contain week complete planning
-		$meet_model = new Meeting();
-		foreach($meets as $m) // hours (size = nb of hours)
-		{
-			$a_meeting = array();
-			for($i = 0; $i < count($data['worked_days']); ++$i) // days (size = nb of worked days)
-			{
-				$meet_date_num = strtotime('+' . $i . ' day ' . date('H', $m) . ' hours ' . date('i', $m) . ' minutes', $data['1st_day']);
-				$meet_date_weekday = date('l', $meet_date_num);
-				$meet_date_day = date('Y/m/d', $meet_date_num);
-
-				$meet_model->where('time', date('H:i', $m))->where('date', $meet_date_day)->get();
-
-				$a_meeting[$meet_date_num] = $meet_model->patient_id;
-			}
-
-			array_push($week_planning, array('hour' => date('H:i', $m), 'week_meets' => $a_meeting));
-		}
-
-		/*foreach($week_planning as $ligne)
-		{
-			foreach($ligne['week_meets'] as $k => $v)
-			{
-				echo 'cle = ' . $k . br() . 'valeur = ' . $v . br();
-			}
-			echo br();
-		}*/
-
-		$data['week_planning'] = $week_planning;
 
 		$this->construct_page->_run('meetings/meetings_index', $data);
 	}
 
+	/**
+	* \brief Compute worked slots for each worked day.
+	* \return Array of worked slots (dates in datetime format).
+	*/
+	private function _construct_time_slots()
+	{
+		$time_slots = array();
+		for($i = strtotime($this->config->item('1st_meet_begin')); end($time_slots) < strtotime($this->config->item('last_meet_end')); $i = strtotime('+' . $this->config->item('meet_duration'), end($time_slots)))
+		{
+			array_push($time_slots, $i);
+		}
+
+		return $time_slots;
+	}
+
+	/**
+	* \brief Construct informations for the weeks list.
+	* \return An associative array (keys = dates (datetime format), values = dates (dd/mm/yyyy format)).
+	*/
+	private function _construct_weeks_list()
+	{
+		// select previous monday (today if we are on monday)
+		$today = strtotime('now');
+		if(date('l', $today) == 'Monday'){ $this_monday = strtotime('today'); } // if we are on monday
+		else{ $this_monday = strtotime('last Monday', $today); }
+		////
+
+		$weeks_list = array();
+		for($i = 0; $i < $this->config->item('nb_weeks_displayed'); ++$i)
+		{
+			$current_monday = strtotime('+' . $i . ' week', $this_monday);
+			$weeks_list[$current_monday] = date('d/m/Y', $current_monday);
+		}
+
+		return $weeks_list;
+	}
+
     /**
-    * \brief Add a new rdv.
+    * \brief Add a new meeting.
     * \param date The date chosen for meeting (time format).
     * \note Verify \param date availability in this method.
     */
