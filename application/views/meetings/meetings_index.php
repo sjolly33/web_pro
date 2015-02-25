@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang=<?php echo $this->config->item('lang'); ?>>
     <head>
-    	<?php echo title_page('meets', 'icon.png', 'image/png'); ?>
+    	<?php echo title_page('Planning', 'icon.png', 'image/png'); ?>
         <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>        
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
 	</head>
 
 	<body>
@@ -58,7 +58,7 @@
 						foreach($days as $day)
 						{
 							$current_treated_date = strtotime($day . ' ' . $slot_hour);
-							if(strtotime('-' . $this->config->item('delay_before_meet'), $current_treated_date) <= strtotime('now') OR ISSET($selected_week_taken_slots[$current_treated_date])) // if it s to late to ask a meeting or if the slot is already taken
+							if($current_treated_date <= strtotime('+' . $this->config->item('delay_before_meet'), strtotime('now')) OR ISSET($selected_week_taken_slots[$current_treated_date])) // if it s to late to ask a meeting or if the slot is already taken
 							{
 								array_push($week_slot, '');
 							}

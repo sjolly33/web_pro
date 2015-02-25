@@ -9,8 +9,8 @@
 
 	<body>
 		<?php // temporaire : simulation connexion / admin
-			$this->session->set_userdata('is_logged_in', true);
-			$this->session->set_userdata('is_admin', false);
+			$this->session->set_userdata('is_logged_in', false);
+			$this->session->set_userdata('is_admin', true);
 		?>
 		<div class='navbar navbar-inverse navbar-static-top' role='navigation'>
 			<div class='container'>
@@ -61,6 +61,7 @@
 	TODO
 		taille egale toutes colonnes ds prise de rdv
 		griser cases indisponibles dans l index rdv(couleurs CSS !)
+		gérer jours / heures repos (récurents ou non)
 		CSS
 			class
 				bloc_an_event

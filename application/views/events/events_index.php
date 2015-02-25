@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang=<?php echo $this->config->item('lang'); ?>>
     <head>
-    	<?php echo title_page('news', 'icon.png', 'image/png'); ?>
+    	<?php echo title_page('Actualités', 'icon.png', 'image/png'); ?>
         <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>        
+        <meta name='viewport' content='width=device-width, initial-scale=1'>      
 	</head>
 
 	<body>

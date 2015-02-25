@@ -2,7 +2,7 @@
 	/**
 	* \brief : constructs the path an image.
 	* \param text : the name of the image (default = 0 => returns the images folder path).
-	* \return : the path of the image whose name is provided or the path of the images folder.
+	* \return : the path of the image whose name is provided or the path of the images folder as a string.
 	*/
 	function img_path($text = '')
 	{
@@ -15,7 +15,7 @@
 	* \param text : the title page text as string.
 	* \param logo : the logo address as string (default = none).
 	* \param mime : the mime type of the logo (default = '').
-	* \return : The logo (if exists), the site name (if exists) and the text passed.
+	* \return : The logo (if exists), the site name (if exists) and the text passed as a string.
 	*/
 	function title_page($text, $logo = '', $mime = '')
 	{
@@ -39,7 +39,7 @@
 	* \brief : constructs div tag with text.
 	* \param text : the text to insert into the div as a string.
 	* \param params : the div attributes as an associative array (default = none).
-	* \return : The div area with the text inside.
+	* \return : The div area with the text inside as a string.
 	*/
 	function div($text, $params = array())
 	{
@@ -58,7 +58,7 @@
 	* \brief : constructs span tag with text.
 	* \param text : the text to insert into the span as a string.
 	* \param params : the span attributes as an associative array (default = none).
-	* \return : The span area with the text inside.
+	* \return : The span area with the text inside as a string.
 	*/
 	function span($text, $params = array())
 	{
@@ -78,7 +78,7 @@
 	* \param text : the text to insert into the <a> as a string.
 	* \param href : the href attribute for the <a> as a string (default = #).
 	* \param params : the <a> attributes as an associative array (default = none).
-	* \return : The <a> area with the text inside.
+	* \return : The <a> area with the text inside as a string.
 	*/
 	function a($text, $href = '#', $params = array())
 	{

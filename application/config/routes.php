@@ -52,6 +52,7 @@ $route['modify_new/(:num)'] = 'eventsCtrl/change/$1';
 // meet
 $route['meet'] = 'meetingsCtrl';
 $route['add_meet/(:num)'] = 'meetingsCtrl/add/$1';
+$route['add_meet'] = 'meetingsCtrl/add';
 ////
 
 
