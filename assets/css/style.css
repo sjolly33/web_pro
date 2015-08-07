@@ -2,18 +2,23 @@
 .bloc_an_event
 {
 	margin-bottom: 2em;
+	padding: 0.5em;
+	border-style: solid;
 }
 
 .bloc_an_event .title
 {
+	color: red;
 }
 
 .bloc_an_event .date
 {
+	color: green;
 }
 
 .bloc_an_event .text
 {
+	color: blue;
 }
 
 /* */

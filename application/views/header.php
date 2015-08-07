@@ -8,7 +8,7 @@
     </head>
 
 	<body>
-		<?php // temporaire : simulation connexion / admin
+		<?php // TODO : temporaire : simulation connexion / admin
 			$this->session->set_userdata('is_logged_in', false);
 			$this->session->set_userdata('is_admin', true);
 		?>
